@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 5000;
 
 let app =express();
 app.use(express.json());
-connectDB();
+
 
 const UserRoute = require('./routes/User');
 const ProductRoute = require('./routes/Product');
@@ -18,13 +18,7 @@ app.use('/product',ProductRoute);
 app.use('/store',StoreRoute);
 app.use('/order',OrderRoute);
 
-if(process.env.NODE_ENV === "production"){
-    app.use(express.static("client/build"));
-    const path = require("path");
-    app.get("*",(req,res)=>{
-        res.sendFile(path.resolve(__dirname,'client','build','index.html'));
-    })
-}
+
 app.use(express.static(path.join(__dirname, "./client/build")));
 app.get("*", function (_, res) {
   res.sendFile(
