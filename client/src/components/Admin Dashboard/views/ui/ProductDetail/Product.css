@@ -1,0 +1,14 @@
+.thumbnails {
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+  overflow: scroll;
+ 
+}
+.thumbnail {
+  margin: 0 5px;
+  width: 90px;
+  overflow: hidden;
+}
